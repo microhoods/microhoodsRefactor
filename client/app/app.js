@@ -1,5 +1,4 @@
 angular.module('app', [
-  'app.singin',
   'app.services',
   'ui-router'
 ])
@@ -10,5 +9,10 @@ angular.module('app', [
       url: '/signin',
       templateUrl: 'app/signin/singin.html',
       controller: 'SigninController'
+    })
+    .state('map', {
+      url: '/map',
+      templateUrl: 'app/map/map.html',
+      controller: 'MapController'
     });
 });
