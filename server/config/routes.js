@@ -26,5 +26,4 @@ var routes = function(app, express){
   });
 };
 
-
 module.exports = routes;
