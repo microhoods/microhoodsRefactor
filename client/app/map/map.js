@@ -6,7 +6,7 @@ angular.module('app.map', [])
         latitude: 37.7696,
         longitude: -122.4468
     },
-    zoom: 13,
+    zoom: 15,
     marker: {
       latitude: 37.7696,
       longitude: -122.4468
@@ -16,6 +16,19 @@ angular.module('app.map', [])
     coords: {
       latitude: 37.7696,
       longitude: -122.4468
+    }
+  };
+  $scope.circle = {
+    center: {
+      latitude: 37.7696,
+      longitude: -122.4468
+    },
+    radius: 100,
+    fill: {
+      color: 'orange'
+    },
+    stroke: {
+      weight: 0.5
     }
   };
 });
