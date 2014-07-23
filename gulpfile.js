@@ -3,17 +3,18 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     notify = require('gulp-notify');
 
-// gulp.task('watch', function(){
 
-//     var server = livereload();
-//     //Watch server files
-//     gulp.watch('./server').on('change', function(file){
-//         server.changed(file.path);
-//     });
-// });
-
-
-gulp.task('default', function () {
-    return gulp.src('./spec/routesSpec.js', {read: false})
-        .pipe(mocha({reporter:'nyan'}));
+gulp.task('mocha', function () {
+  return gulp.src('./spec/routesSpec.js', {read: false})
+    .pipe(mocha({reporter:'nyan'}));
 });
+
+gulp.task('watch', function(){
+  var server = livereload();
+  //Watch server files
+  gulp.watch('./server/**/*.js', ['mocha']);
+  gulp.watch('./spec/**/*.js', ['mocha']);
+
+});
+
+gulp.task('default', ['mocha', 'watch']);
