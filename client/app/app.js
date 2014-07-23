@@ -1,13 +1,15 @@
 angular.module('app', [
   'app.services',
+  'app.signin',
+  'app.map',
   'ui-router'
 ])
 
-.config(function($stateProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('signin', {
       url: '/signin',
-      templateUrl: 'app/signin/singin.html',
+      templateUrl: 'app/signin/signin.html',
       controller: 'SigninController'
     })
     .state('map', {
@@ -15,4 +17,5 @@ angular.module('app', [
       templateUrl: 'app/map/map.html',
       controller: 'MapController'
     });
+    $urlRouterProvider.otherwise('/signin');
 });
