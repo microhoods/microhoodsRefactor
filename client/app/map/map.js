@@ -6,6 +6,16 @@ angular.module('app.map', [])
         latitude: 37.7696,
         longitude: -122.4468
     },
-    zoom: 13
+    zoom: 13,
+    marker: {
+      latitude: 37.7696,
+      longitude: -122.4468
+    }
+  };
+  $scope.marker = {
+    coords: {
+      latitude: 37.7696,
+      longitude: -122.4468
+    }
   };
 });
