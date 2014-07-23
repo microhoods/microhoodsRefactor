@@ -31,4 +31,9 @@ angular.module('app.map', [])
       weight: 0.5
     }
   };
+
+
+  $scope.tagDetails = function() {
+    console.log('YEAH!');
+  }
 });
