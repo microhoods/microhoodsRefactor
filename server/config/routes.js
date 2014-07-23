@@ -1,14 +1,23 @@
 var routes = function(app, express){
-  app.get('/', function(req, res){
-    res.send('Hello World');
-  });
-
-  app.get('/login', function(req, res){
+  
+  app.post('/login', function(req, res){
     res.send('Login Page');
   });
 
-  app.get('/home', function(req, res){
+  app.get('/', function(req, res){
     res.send('Home Page');
+  });
+
+  app.post('/api/tags', function(req, res){
+    res.send('Saving Tags');
+  });
+
+  app.delete('/api/tags', function(req, res){
+    res.send('Deleting Tags');
+  });
+
+  app.get('/api/tags', function(req, res){
+    res.send('Here are your tags!');
   });
 };
 
