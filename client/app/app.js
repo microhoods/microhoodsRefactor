@@ -2,7 +2,8 @@ angular.module('app', [
   'app.services',
   'app.signin',
   'app.map',
-  'ui.router'
+  'ui.router',
+  'google-maps'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
