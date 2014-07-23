@@ -2,7 +2,7 @@ angular.module('app', [
   'app.services',
   'app.signin',
   'app.map',
-  'ui-router'
+  'ui.router'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -17,5 +17,6 @@ angular.module('app', [
       templateUrl: 'app/map/map.html',
       controller: 'MapController'
     });
+
     $urlRouterProvider.otherwise('/signin');
 });
