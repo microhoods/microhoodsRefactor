@@ -3,9 +3,10 @@ angular.module('app.map', [])
 .controller('MapController', function($scope) {
   $scope.map = {
     center: {
-        latitude: 45,
-        longitude: -73
+        latitude: 37.7696,
+        longitude: -122.4468
     },
-    zoom: 8
+    zoom: 13
   };
+  console.log($scope.map);
 });
