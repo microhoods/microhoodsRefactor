@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KiaFathi/microhoodsRefactor/issues"
   },
-  "homepage": "https://github.com/KiaFathi/microhoodsRefactor"
+  "homepage": "https://github.com/KiaFathi/microhoodsRefactor",
+  "dependencies": {
+    "express": "^4.6.1"
+  }
 }
