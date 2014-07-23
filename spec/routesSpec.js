@@ -34,7 +34,7 @@ describe('routes', function(){
       .end(done);
   });
 
-  it('should be able to retireve tags', function(done){
+  it('should be able to retrieve tags', function(done){
     test(app)
       .get('/api/tags')
       .expect(200, 'Here are your tags!')

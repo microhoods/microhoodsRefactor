@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha');
     livereload = require('gulp-livereload'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    shell = require('gulp-shell');
 
 
 gulp.task('mocha', function () {
@@ -14,7 +15,10 @@ gulp.task('watch', function(){
   //Watch server files
   gulp.watch('./server/**/*.js', ['mocha']);
   gulp.watch('./spec/**/*.js', ['mocha']);
-
 });
 
-gulp.task('default', ['mocha', 'watch']);
+gulp.task('run', shell.task([
+  'nodemon index.js'
+]));
+
+gulp.task('default', ['mocha', 'run', 'watch']);
