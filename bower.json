@@ -20,6 +20,8 @@
     "angular": "~1.2.20",
     "bootstrap-css-only": "~3.2.0",
     "angular-google-maps": "~1.1.8",
-    "angularjs-geolocation": "~0.1.1"
+    "angularjs-geolocation": "~0.1.1",
+    "bootstrap-social": "~4.5.1",
+    "font-awesome": "~4.1.0"
   }
 }

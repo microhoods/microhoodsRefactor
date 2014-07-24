@@ -1,3 +1,41 @@
+body {
+  background-color: #FEF2D8;
+}
+
 .angular-google-map-container {
   height: 800px;
 }
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+
+.content {
+  text-align: center;
+}
+
+.page-header {
+  font-size: 18pt;
+  color: #03606B;
+  font-family: 'Lato';
+  font-weight: bold;
+  margin: 35px 0 10px;
+}
+
+.page-subheader {
+  font-size: 16pt;
+  display: block;
+}
+
+.loginbutton {
+  margin-top: 25px
+}
+.description{
+  font-family: 'Lato';
+  font-size: 14px;
+}
+
+
