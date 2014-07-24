@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 
 gulp.task('mocha', function () {
   return gulp.src('./spec/*.js', {read: false})
-    .pipe(mocha({reporter:'nyan'}));
+    .pipe(mocha({reporter:'spec'}));
 });
 
 gulp.task('watch', function(){

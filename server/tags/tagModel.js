@@ -1,13 +1,14 @@
 var mongoose = require('mongoose'),
-    crypto = require('crypto');
+    crypto = require('crypto'),
+    Schema = mongoose.Schema;
 
 
 var tagSchema = new Schema({
 
   //userId that references a singleUser
   user: {
-    type: Schema.Types.ObjectId, 
-    ref: 'user',
+    type: Schema.ObjectId, 
+    ref: 'User',
     required: true
   },
 
@@ -33,4 +34,4 @@ var tagSchema = new Schema({
 
 });
 
-var tag = mongoose.model('tag', tagSchema)
+var Tag = mongoose.model('Tag', tagSchema);
