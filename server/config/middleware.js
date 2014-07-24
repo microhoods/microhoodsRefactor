@@ -2,7 +2,7 @@ var bodyParser = require('body-parser'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     userModel = require('./../users/userModel.js'),
-    credentials = require('./../../credentials.js');
+    credentials = require('./../../credentials.js') || 'empty';
 
 
 
