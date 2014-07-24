@@ -1,9 +1,10 @@
-var express = require('express');
-var app = express();
+var express = require('express'),
+    mongoose = require('mongoose'),
+    app = express();
 
-require('./config/routes.js')(app, express);
+mongoose.connect('mongodb://localhost/microhoods');
+
 require('./config/middleware.js')(app, express);
-
 
 module.exports = app;
 

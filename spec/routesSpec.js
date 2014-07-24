@@ -3,19 +3,21 @@ var expect    = require('chai').expect,
     test      = require('supertest'),
     port      = 8500;
 
+var testPostid;
+
 
 describe('routes', function(){
 
   it('should be able to get the home page', function(done){
     test(app)
       .get('/')
-      .expect(200, 'Home Page')
+      .expect(200)
       .end(done);
   });
 
   it('should be able to post to the login path', function(done){
     test(app)
-      .post('/login')
+      .post('/api/users/login')
       .expect(200, 'Login Page')
       .end(done);
   });
@@ -23,21 +25,37 @@ describe('routes', function(){
   it('should be able to post tags', function(done){
     test(app)
       .post('/api/tags')
-      .expect(200, 'Saving Tags')
-      .end(done);
+      .expect(200)
+      .end(function(err, res){
+        if(err){
+          throw err;
+        } else {
+          testPostid= res.body._id;
+          expect(res.body).to.be.a('object');
+          done();
+        }
+      });
   });
 
-  it('should be able to delete tags', function(done){
-    test(app)
-      .del('/api/tags')
-      .expect(200, 'Deleting Tags')
-      .end(done);
-  });
-
-  it('should be able to retireve tags', function(done){
+  it('should be able to retrieve tags', function(done){
     test(app)
       .get('/api/tags')
-      .expect(200, 'Here are your tags!')
+      .expect(200)
+      .end(function(err, res){
+        if(err){
+          throw err;
+        } else {
+          expect(res).to.be.a('object');
+          done();
+        }
+      });
+  });
+  
+  it('should be able to delete tags', function(done){
+    test(app)
+      .del('/api/tags/' + testPostid)
+      .expect(200, 'Data with id:' + testPostid + ' Deleted')
       .end(done);
   });
+
 });
