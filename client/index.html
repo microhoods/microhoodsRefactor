@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="lib/bootstrap-css-only/css/bootstrap.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body ng-app="app">
+
+
+  <div ui-view></div>
+
+  <!-- App Dependencies -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src="lib/lodash/dist/lodash.js"></script>
+  <script src="lib/angular-google-maps/dist/angular-google-maps.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+  <!-- Javascript Files -->
+  <script src="app/services/services.js"></script>
+  <script src="app/signin/signin.js"></script>
+  <script src="app/map/map.js"></script>
+  <script src="app/app.js"></script>
+
+</body>
+</html>

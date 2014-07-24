@@ -1,0 +1,25 @@
+{
+  "name": "microhoodsRefactor",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/maseh87/microhoodsRefactor",
+  "authors": [
+    "Mason <maseh87@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.10",
+    "angular": "~1.2.20",
+    "bootstrap-css-only": "~3.2.0",
+    "angular-google-maps": "~1.1.8",
+    "angularjs-geolocation": "~0.1.1"
+  }
+}
