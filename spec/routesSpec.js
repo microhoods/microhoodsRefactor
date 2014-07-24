@@ -30,25 +30,34 @@ describe('routes', function(){
         if(err){
           throw err;
         } else {
-          console.log(res.body);
           testPostid= res.body._id;
+          // console.log(res.body);
           expect(res.body).to.be.a('object');
           done();
         }
       });
   });
 
-  it('should be able to delete tags', function(done){
-    test(app)
-      .del('/api/tags/' + testPostid)
-      .expect(200, 'Deleted Tags!')
-      .end(done);
-  });
-
   it('should be able to retrieve tags', function(done){
     test(app)
       .get('/api/tags')
-      .expect(200, 'Here are your tags!')
+      .expect(200)
+      .end(function(err, res){
+        if(err){
+          throw err;
+        } else {
+          console.log(res.body);
+          expect(res).to.be.a('object');
+          done();
+        }
+      });
+  });
+  
+  it('should be able to delete tags', function(done){
+    test(app)
+      .del('/api/tags/' + testPostid)
+      .expect(200, 'Data with id:' + testPostid + ' Deleted')
       .end(done);
   });
+
 });

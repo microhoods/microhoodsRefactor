@@ -19,9 +19,26 @@ module.exports = {
     });
   },
   //fetch all tags from D
-  getTags : function(req, res){},
+  getTags : function(req, res){
+    tagModel.find(function(err, data){
+      if(err){
+        throw err;
+      } else {
+        console.log(data);
+        res.send(data);
+      }
+    });
+  },
   //delete specific tag from DB
   deleteTag : function(req, res){
-    
+    tagModel.remove({
+      id: req.params.id
+    }, function(err){
+      if(err){
+        throw err;
+      } else {
+        res.send('Data with id:' + req.params.id + ' Deleted');
+      }
+    });
   }
 };
