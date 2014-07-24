@@ -31,7 +31,6 @@ describe('routes', function(){
           throw err;
         } else {
           testPostid= res.body._id;
-          // console.log(res.body);
           expect(res.body).to.be.a('object');
           done();
         }
@@ -46,7 +45,6 @@ describe('routes', function(){
         if(err){
           throw err;
         } else {
-          console.log(res.body);
           expect(res).to.be.a('object');
           done();
         }

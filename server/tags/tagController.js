@@ -24,7 +24,6 @@ module.exports = {
       if(err){
         throw err;
       } else {
-        console.log(data);
         res.send(data);
       }
     });
@@ -32,7 +31,7 @@ module.exports = {
   //delete specific tag from DB
   deleteTag : function(req, res){
     tagModel.remove({
-      id: req.params.id
+      _id: req.params.id
     }, function(err){
       if(err){
         throw err;
