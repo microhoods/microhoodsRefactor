@@ -1,6 +1,10 @@
-module.exports = function(router){
+module.exports = function(router, passport){
   //The route to get to the login page
-  router.post('/users/login', function(req, res){
-    res.send('Login Page');
+
+  router.get('/auth/google', passport.authenticate('google', {scope: 'https://www.googleapis.com/auth/userinfo.profile'}), function(req, res){});
+
+  router.get('/auth/google/callback', function(req, res){
+    res.redirect('/');
   });
+
 };
