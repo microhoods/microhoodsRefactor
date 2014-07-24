@@ -18,7 +18,7 @@ gulp.task('watch', function(){
 });
 
 gulp.task('run', shell.task([
-  'nodemon index.js'
+  'nodemon server.js'
 ]));
 
 gulp.task('default', ['watch', 'mocha', 'run']);
