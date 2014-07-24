@@ -1,10 +1,13 @@
 angular.module('app.map', [])
 
-.controller('MapController', function($scope) {
+.controller('MapController', function($scope, currentLocation) {
+
   $scope.map = {
     center: {
-        latitude: 37.7696,
-        longitude: -122.4468
+        // latitude: coordinates.latitude,
+        // longitude: coordinates.longitude
+      latitude: currentLocation.latitude,
+      longitude: currentLocation.longitude
     },
     zoom: 15,
     marker: {
@@ -12,12 +15,14 @@ angular.module('app.map', [])
       longitude: -122.4468
     }
   };
+
   $scope.marker = {
     coords: {
       latitude: 37.7696,
       longitude: -122.4468
     }
   };
+
   $scope.circle = {
     center: {
       latitude: 37.7696,
@@ -32,8 +37,9 @@ angular.module('app.map', [])
     }
   };
 
-
   $scope.tagDetails = function() {
     console.log('YEAH!');
-  }
+  };
+
+  // navigator.geolocation.getCurrentPosition(success, error);
 });
