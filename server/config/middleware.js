@@ -20,22 +20,26 @@ module.exports = function(app, express){
     callbackURL: process.env.googleCallbackURL || credentials.googleCallbackUrl
   }, function(accessToken, refreshToken, profile, done){
     //check if that user is already in database
+    console.log('kiaaaa');
     userModel.findOne({userId: profile.id}, function(err, user){
       if(err){
         throw err;
       }
       else{
         //if exists, return user object and referenceID
+        console.log(user);
         if(user){
           done(null, user);
         } 
         //if not, create new account in database and return that userObj and referenceID
         else{
+          console.log('Creating!');
           userModel.create({userId: profile.id, userName: profile.displayName}, function(err){
             if(err){
-              throw err;
+              done(err);
             } 
             else {
+              console.log(user);
               done(null, user);
             }
           });
@@ -45,6 +49,23 @@ module.exports = function(app, express){
   }));
 
   //middleware
+
+  passport.serializeUser(function(user, done){
+    console.log('serializeUser:' + user.userId);
+    done(null, user.userId); 
+  });
+  passport.deserializeUser(function(id, done){
+    User.findOne({userId: id}, function(err, user){
+      if(err){
+        done(err);
+      }
+      else{
+        done(null, user);
+      }
+    });
+  });
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../client'));
