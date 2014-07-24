@@ -1,3 +1,7 @@
+body {
+  background-color: #FEF2D8;
+}
+
 .angular-google-map-container {
   height: 800px;
 }
@@ -14,7 +18,7 @@
 }
 
 .page-header {
-  font-size: 14pt;
+  font-size: 18pt;
   color: #03606B;
   font-family: 'Lato';
   font-weight: bold;
@@ -22,7 +26,7 @@
 }
 
 .page-subheader {
-  font-size: 12pt;
+  font-size: 16pt;
   display: block;
 }
 
@@ -31,8 +35,7 @@
 }
 .description{
   font-family: 'Lato';
-  font-size: 12px;
+  font-size: 14px;
 }
-body {
-  background-color: #FEF2D8;
-}
+
+
