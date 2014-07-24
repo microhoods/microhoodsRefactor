@@ -6,11 +6,11 @@ var mongoose = require('mongoose'),
 var tagSchema = new Schema({
 
   //userId that references a singleUser
-  user: {
-    type: Schema.ObjectId, 
-    ref: 'User',
-    required: true
-  },
+  // user: {
+  //   type: Schema.ObjectId, 
+  //   ref: 'User',
+  //   required: true
+  // },
 
   //sentiment which is a string
   sentiment: {
@@ -20,7 +20,7 @@ var tagSchema = new Schema({
 
   //Going to have longitude/latitude geo data that is a 2d array of numbers
   geo: {
-    type: Number, 
+    type: [Number], 
     index: '2d', 
     required: true
   },
@@ -34,4 +34,4 @@ var tagSchema = new Schema({
 
 });
 
-var Tag = mongoose.model('Tag', tagSchema);
+module.exports = mongoose.model('Tag', tagSchema);

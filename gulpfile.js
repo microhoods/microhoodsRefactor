@@ -11,7 +11,7 @@ gulp.task('mocha', function () {
 });
 
 gulp.task('watch', function(){
-  var server = livereload();
+   var server = livereload();
   //Watch server files
   gulp.watch('./server/**/*.js', ['mocha']);
   gulp.watch('./spec/**/*.js', ['mocha']);
@@ -21,4 +21,4 @@ gulp.task('run', shell.task([
   'nodemon index.js'
 ]));
 
-gulp.task('default', ['mocha', 'run', 'watch']);
+gulp.task('default', ['watch', 'mocha', 'run']);
