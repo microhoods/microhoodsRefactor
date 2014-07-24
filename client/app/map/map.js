@@ -4,29 +4,23 @@ angular.module('app.map', [])
 
   $scope.map = {
     center: {
-        // latitude: coordinates.latitude,
-        // longitude: coordinates.longitude
       latitude: currentLocation.latitude,
       longitude: currentLocation.longitude
     },
-    zoom: 15,
-    marker: {
-      latitude: 37.7696,
-      longitude: -122.4468
-    }
+    zoom: 19
   };
 
   $scope.marker = {
     coords: {
-      latitude: 37.7696,
-      longitude: -122.4468
+      latitude: currentLocation.latitude,
+      longitude: currentLocation.longitude
     }
   };
 
   $scope.circle = {
     center: {
-      latitude: 37.7696,
-      longitude: -122.4468
+      latitude: currentLocation.latitude,
+      longitude: currentLocation.longitude
     },
     radius: 100,
     fill: {
