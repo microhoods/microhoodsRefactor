@@ -57,13 +57,7 @@ angular.module('app.map', [])
 
   $scope.events = {
     dblclick: function(map, event, args) {
-      // var long = args[0].latLng.B;
-      // var lat = args[0].latLng.K;
-      // $scope.markers.push({
-      //   latitude: lat,
-      //   long: long
-      // });
-      console.log(args[0].latLng);
+      console.log(args[0]);
     }
   };
 
