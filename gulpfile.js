@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('mocha', function () {
-  return gulp.src('./spec/routesSpec.js', {read: false})
+  return gulp.src('./spec/*.js', {read: false})
     .pipe(mocha({reporter:'nyan'}));
 });
 
