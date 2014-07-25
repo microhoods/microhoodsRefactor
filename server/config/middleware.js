@@ -25,20 +25,9 @@ module.exports = function(app, express){
 
   //middleware
 
-  passport.serializeUser(function(user, done){
-    console.log('serializeUser:' + user);
-    done(null, user); 
-  });
-  passport.deserializeUser(function(user, done){
-    User.findOne({_id : user._id}, function(err, user){
-      if(err){
-        done(err);
-      }
-      else{
-        done(null, user);
-      }
-    });
-  });
+  passport.serializeUser(userController.serializeUser);
+  passport.deserializeUser(userController.deserializeUser);
+  
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(bodyParser.urlencoded({extended: true}));

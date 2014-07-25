@@ -29,4 +29,17 @@ module.exports = {
       }
     });
   },
+  serializeUser : function(user, done){
+    done(null, user);
+  },
+  deserializeUser : function(user, done){
+    User.findOne({_id : user._id}, function(err, user){
+      if(err){
+        done(err);
+      }
+      else{
+        done(null, user);
+      }
+    });
+  }
 };
