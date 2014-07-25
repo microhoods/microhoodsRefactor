@@ -69,4 +69,17 @@ angular.module('app.map', [])
   $scope.tagDetails = function() {
     console.log('yo');
   };
+
+  MapFactory.getMarkers()
+  .then(function(data){
+    for(var i = 0; i < data.data.length; i++){
+      var current = data.data[i];
+      $scope.markers.push({
+        coords: {
+          latitude: current.geo[1],
+          longitude: current.geo[0]
+        }
+      });
+    } 
+  });
 });
