@@ -59,7 +59,7 @@ module.exports = function(app, express){
   //middleware
 
   passport.serializeUser(function(user, done){
-    console.log('serializeUser:' + user._id);
+    console.log('serializeUser:' + user);
     done(null, user); 
   });
   passport.deserializeUser(function(user, done){
