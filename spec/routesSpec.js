@@ -15,7 +15,7 @@ describe('Server/Database Intergration', function(){
       .end(done);
   });
 
-  //We removed this path, will fix it later
+  //We removed this test, will fix it later
   // it('should be able to POST to login', function(done){
   //   test(app)
   //     .post('/api/users/login')
@@ -53,7 +53,7 @@ describe('Server/Database Intergration', function(){
       });
   });
   
-  // //Not posting so shouldn't delete
+  //Not posting so shouldn't delete
   // it('should be able to DELETE from tags', function(done){
   //   test(app)
   //     .del('/api/tags/' + testPostid)
