@@ -9,15 +9,19 @@
     </ul>
     <form class="navbar-form navbar-right" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Add New MicroHood">
+        <input type="text" class="form-control" placeholder="Add New MicroHood" ng-model='sentimentValue'>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 </nav>
-<google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
-  <!-- <window show="window.show" coords="window.coords">YOOOO</window> -->
-  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()" events="markerEvents">
+<google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
+  <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
+  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()">
+    <window show='true' isIconVisible='false'>
+      <p> {{marker.sentiment}}
+    </p>
+    </window>
   </marker>
   <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
 </google-map>

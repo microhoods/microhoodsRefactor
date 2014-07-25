@@ -8,11 +8,14 @@ angular.module('app.map', [])
       longitude: MapFactory.cache.geolocation.long
     },
     zoom: 16,
+    options: {
+      disableDoubleClickZoom: true
+    },
     events: {
       dblclick: function(map, event, args) {
         var plot = {
           _id: 1,
-          sentiment: 'Plot',
+          sentiment: $scope.sentimentValue,
           geo: [
             args[0].latLng.B,
             args[0].latLng.k
@@ -23,6 +26,7 @@ angular.module('app.map', [])
             console.log('this is data posted');
             console.log(data);
           $scope.markers.push({
+            sentiment : data.sentiment,
             coords: {
             latitude: data.geo[1],
             longitude: data.geo[0]
@@ -78,7 +82,8 @@ angular.module('app.map', [])
         coords: {
           latitude: current.geo[1],
           longitude: current.geo[0]
-        }
+        },
+        sentiment : current.sentiment
       });
     } 
   });
