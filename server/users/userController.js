@@ -1,3 +1,5 @@
+var userModel = require('./userModel.js');
+
 module.exports = {
   loginToDatabase : function(accessToken, refreshToken, profile, done){
     //check if that user is already in database
