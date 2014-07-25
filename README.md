@@ -18,8 +18,9 @@
 ## Requirements
 
 - Node
-- Hapi
-- Postgresql 
+- Express
+- Mongoose
+- Angular
 
 ## Development
 
