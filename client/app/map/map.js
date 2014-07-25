@@ -26,6 +26,7 @@ angular.module('app.map', [])
             console.log('this is data posted');
             console.log(data);
           $scope.markers.push({
+            id : data._id,
             sentiment : data.sentiment,
             coords: {
             latitude: data.geo[1],
@@ -62,23 +63,8 @@ angular.module('app.map', [])
     },
     show: true,
     templateUrl: 'app/map/window.html'
-      };
+    };
 
-  $scope.markerEvents = {
-    dblclick: function(map, event, args) {
-      console.log(args);
-    },
-
-    click: function(){
-      console.log('Hi!');
-    }
-    
-
-  };
-
-  $scope.tagDetails = function() {
-    console.log('yo');
-  };
 
   MapFactory.getMarkers()
   .then(function(data){
@@ -105,11 +91,6 @@ angular.module('app.map', [])
     $http({
       method : 'DELETE',
       url: '/api/tags/' + item.id,
-
-    }).then(function(data){
-      console.log(data);
     });
-    // console.log(id);
-    // console.log($scope.markers.slice(id, 1));
   };
 });
