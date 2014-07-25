@@ -1,7 +1,8 @@
 var bodyParser = require('body-parser'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
-    userModel = require('./../users/userModel.js'); 
+    userModel = require('./../users/userModel.js'),
+    userController = require('./../users/userController.js'); 
 
 //Enable this variable for local testing
 if(!process.env.PORT){
@@ -16,40 +17,11 @@ module.exports = function(app, express){
   var tagRouter = express.Router();
 
   //passport set up
-  passport.use( new GoogleStrategy({
+  passport.use(new GoogleStrategy({
     clientID: process.env.google_clientId || credentials.google_clientId,
     clientSecret: process.env.google_clientSecret || credentials.google_clientSecret,
     callbackURL: process.env.googleCallbackURL || credentials.googleCallbackUrl
-  }, function(accessToken, refreshToken, profile, done){
-    //check if that user is already in database
-    userModel.findOne({'providers.google.id': profile.id}, function(err, user){
-      if(err){
-        throw err;
-      }
-      else{
-        //if exists, return user object and referenceID
-        if(user){
-          done(null, user);
-        } 
-        //if not, create new account in database and return that userObj and referenceID
-        else{
-          userModel.create({
-            'providers.google.id': profile.id, 
-            'providers.google.accessToken': accessToken,
-             userName: profile.displayName
-           }, 
-           function(err){
-            if(err){
-              done(err);
-            } 
-            else {
-              done(null, user);
-            }
-          });
-        }
-      }
-    });
-  }));
+  }, userController.loginToDatabase));
 
   //middleware
 
