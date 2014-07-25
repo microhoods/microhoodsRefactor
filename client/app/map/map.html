@@ -1,7 +1,8 @@
 <nav class="top-nav">
+  <button class="signout">Logout</button>
   <p class="title">MICROHOODS</p>
-  <div class="nav-buttons current">Community</div>
-  <div class="nav-buttons">Personal</div>
+  <div class="top-nav-buttons current">Community</div>
+  <div class="top-nav-buttons">Personal</div>
 </nav> 
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
@@ -13,5 +14,11 @@
   <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
 </google-map>
 <nav class="bottom-nav">
-  <div class="container"><form class="inbar"><input ng-model="sentimentValue" placeholder="Add a tagname" class="form-control"></input></form></div>
+  <div class="bottom-nav-buttons">Disco</div>
+  <div class="bottom-nav-buttons">Party</div>
+  <div class="container">
+    <form data-toggle="tooltip" trigger="click" title="Type what you would like to tag your 'hood' then doubleclick anywhere on the map to add it!" class="inbar">
+      <input ng-model="sentimentValue" placeholder="Add a tagname" class="form-control"></input>
+    </form>
+  </div>
 </nav>
