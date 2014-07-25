@@ -4,7 +4,9 @@ var bodyParser = require('body-parser'),
     userModel = require('./../users/userModel.js'); 
 
 //Enable this variable for local testing
-var credentials = require('./../../credentials.js') || 'empty';
+if(!process.env.PORT){
+  var credentials = require('./../../credentials.js') || 'empty';
+}
 
 
 
