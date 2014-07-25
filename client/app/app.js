@@ -25,6 +25,7 @@ angular.module('app', [
   // $http.get('/api/tags').then(function(results){
   //   $scope.markers.push(results.results);
   // });
+
   geolocation.getLocation().then(function(data) {
     MapFactory.updateGeoCache(data.coords.latitude, data.coords.longitude);
 
