@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var tagSchema = new Schema({
 
-  userId that references a singleUser
+  // userId that references a singleUser
   user: {
     type: Schema.ObjectId, 
     ref: 'User',

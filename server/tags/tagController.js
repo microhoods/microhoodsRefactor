@@ -7,6 +7,7 @@ module.exports = {
     var sentiment = req.body.sentiment || 'dummy';
     var geo = req.body.geo || [100,100];
     tagModel.create({
+      user: req.body.user._id,
       sentiment: sentiment,
       geo: geo
     }, function(err, data){
