@@ -36,6 +36,7 @@ angular.module('app.map', [])
           });
         console.log('Markers');
         console.log($scope.markers);
+        $scope.sentimentValue = '';
         });
       }
     }
