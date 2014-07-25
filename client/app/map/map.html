@@ -13,13 +13,11 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
-    </div>
+  </div>
 </nav>
-<!-- <div class="container"> -->
-  <google-map center="map.center" zoom="map.zoom" draggable="true" events="events">
-    <window show="window.show" coords="window.coords">YOOOO</window>
-    <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()">
-    </marker>
-    <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
-  </google-map>
-<!-- </div> -->
+<google-map center="map.center" zoom="map.zoom" draggable="true" events="events">
+  <!-- <window show="window.show" coords="window.coords">YOOOO</window> -->
+  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()">
+  </marker>
+  <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
+</google-map>

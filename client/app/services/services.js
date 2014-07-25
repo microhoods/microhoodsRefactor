@@ -1,13 +1,13 @@
 angular.module('app.services', [])
 
-.factory('MapFactory', function() {
+.factory('MapFactory', function($http) {
   var cache = {
     geolocation: {
       lat: 37.7836,
       long: -122.4090
-    }
+    },
+    plots: []
   };
-
 
   return {
     cache: cache,
@@ -16,6 +16,23 @@ angular.module('app.services', [])
         lat: lat,
         long: long
       };
+    },
+    getMarkers: function() {
+      return $http({
+        method: 'GET',
+        url: '/api/tags'
+      }).then(function(data) {
+        cache.plots.push(data.results);
+      });
+    },
+    postMarkers: function(obj) {
+      $http({
+        method: "POST",
+        url: "/api/tags",
+        data: obj
+      }).then(function(data) {
+        return data.results;
+      });
     }
   };
-});  
+});
