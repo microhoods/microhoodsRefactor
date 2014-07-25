@@ -1,6 +1,6 @@
 angular.module('app.map', [])
 
-.controller('MapController', function($scope, MapFactory) {
+.controller('MapController', function($scope, MapFactory, $http) {
   $scope.quickMarkers = [];
   $scope.map = {
     center: {
@@ -28,24 +28,31 @@ angular.module('app.map', [])
 
   $scope.events = {
     dblclick: function(map, event, args) {
-      var plot = {
-        sentiment: 'Plot',
-        geo: [
-          args[0].lat,
-          args[0].long
-        ]
-      };
+      console.log('Args');
+      console.log(args);
+    var plot = {
+      _id: 1,
+      sentiment: 'Plot',
+      geo: [
+        args[0].latLng.B,
+        args[0].latLng.k
+      ]
+    };
       MapFactory.postMarkers(plot)
         .then(function(data) {
-          $scope.markers.push({
-            coords: {
-              latitude: data.geo[0],
-              longitude: data.geo[1]
-            }
-          });
+          console.log('this is data posted');
+          console.log(data);
+        $scope.markers.push({
+          coords: {
+          latitude: data.geo[1],
+          longitude: data.geo[0]
+          }
+        });
+        console.log('Markers');
+        console.log($scope.markers);
       });
-    }
-  };
+  }
+};
 
   $scope.window = {
     coords: {

@@ -23,15 +23,16 @@ angular.module('app.services', [])
         url: '/api/tags'
       }).then(function(data) {
         cache.plots.push(data.results);
+        return data.results;
       });
     },
     postMarkers: function(obj) {
-      $http({
+      return $http({
         method: "POST",
         url: "/api/tags",
         data: obj
       }).then(function(data) {
-        return data.results;
+        return data.config.data;
       });
     }
   };
