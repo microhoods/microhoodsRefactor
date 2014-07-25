@@ -15,9 +15,9 @@
     </form>
   </div>
 </nav>
-<google-map center="map.center" zoom="map.zoom" draggable="true" events="events">
+<google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events">
   <!-- <window show="window.show" coords="window.coords">YOOOO</window> -->
-  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()">
+  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()" events="markerEvents">
   </marker>
   <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
 </google-map>
