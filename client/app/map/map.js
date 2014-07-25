@@ -1,7 +1,20 @@
 angular.module('app.map', [])
 
 .controller('MapController', function($scope, MapFactory, $http) {
+  
+  $scope.myID = function(all){
+    if(all) {
+      return $scope.userId = '';
+    }
 
+    $http({
+      method: 'GET',
+      url: '/api/tags/myTags'
+    }).then(function(res){
+      data = JSON.parse(res.data);
+      $scope.userId = data;
+    }); 
+  }
 
   $scope.map = {
     center: {
@@ -24,8 +37,6 @@ angular.module('app.map', [])
         };
         MapFactory.postMarkers(plot)
           .then(function(data) {
-            console.log('this is data posted');
-            console.log(data);
           $scope.markers.push({
             id : data._id,
             sentiment : data.sentiment,
@@ -35,8 +46,6 @@ angular.module('app.map', [])
             },
             user : data.user
           });
-        console.log('Markers');
-        console.log($scope.markers);
         $scope.sentimentValue = '';
         });
       }
@@ -71,7 +80,6 @@ angular.module('app.map', [])
 
   MapFactory.getMarkers()
   .then(function(data){
-    console.log(data);
     for(var i = 0; i < data.data.length; i++){
       var current = data.data[i];
       $scope.markers.push({
@@ -84,6 +92,8 @@ angular.module('app.map', [])
         user: current.user
       });
     } 
+  console.log($scope.markers)
+
   });
 
   $scope.deleteTag = function(id){
@@ -91,10 +101,12 @@ angular.module('app.map', [])
     $scope.$apply(function(){
       $scope.markers.splice(id, 1);
     });
-    console.log(item);
     $http({
       method : 'DELETE',
       url: '/api/tags/' + item.id,
     });
   };
+
+
+
 });

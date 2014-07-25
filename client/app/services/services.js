@@ -22,8 +22,6 @@ angular.module('app.services', [])
         method: 'GET',
         url: '/api/tags'
       }).then(function(data) {
-        console.log('Marker Data');
-        console.log(data);
         cache.plots.push(data);
         return data;
       });

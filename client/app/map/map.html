@@ -1,16 +1,16 @@
 <nav class="top-nav">
   <p class="title">MICROHOODS</p>
-  <div class="nav-buttons current" ng-click='switchCommunity()'>Community</div>
-  <div class="nav-buttons" ng-click='switchPersonal()'>Personal</div>
+  <div class="nav-buttons current" ng-click='myID(true)'>Community</div>
+  <div class="nav-buttons" ng-click='myID()'>Personal</div>
 </nav> 
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
-  <marker ng-repeat="marker in markers" coords="marker.coords">
+  <marker ng-repeat="marker in markers | filter:{user: userId}" coords="marker.coords" ng-if='!switch || switch === markers[$id].user'>
     <window show='true' isIconVisible='false' closeClick='deleteTag($index)'>
       <p> {{marker.sentiment}}</p>
     </window>
   </marker>
-  <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>
+  <marker coords='circle.center'></marker>
 </google-map>
 <nav class="bottom-nav">
   <div class="container"><form class="inbar"><input ng-model="sentimentValue" placeholder="Add a tagname" class="form-control"></input></form></div>
