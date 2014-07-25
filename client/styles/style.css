@@ -29,7 +29,7 @@ body {
   src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 
-.content {
+.content { 
   text-align: center;
 }
 
