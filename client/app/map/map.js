@@ -70,9 +70,9 @@ angular.module('app.map', [])
     templateUrl: 'app/map/window.html'
   };
 
-  $scope.tagDetails = function() {
-    console.log('YEAH!');
-  };
+  // $scope.tagDetails = function() {
+  //   console.log('YEAH!');
+  // };
 
   // navigator.geolocation.getCurrentPosition(success, error);
 });
