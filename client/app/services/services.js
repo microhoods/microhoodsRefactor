@@ -32,7 +32,7 @@ angular.module('app.services', [])
         url: "/api/tags",
         data: obj
       }).then(function(data) {
-        return data.config.data;
+        return data.data;
       });
     }
   };
