@@ -85,6 +85,11 @@ body {
   background-color: rgb(231, 133, 114);
 }
 
+.signout {
+  margin: 10px 0px 11px 7px;
+}
+
+
 .current {
   background-color: rgb(219, 90, 85);
 }
