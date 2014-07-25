@@ -1,20 +1,8 @@
-<nav class="nav navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="">MicroHoods</a>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="">Your MicroHoods</a></li>
-      <li><a href="">Community MicroHoods</a></li>
-      <li><a href="/api/logout">Sign Out</a></li>
-    </ul>
-    <form class="navbar-form navbar-right" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Add New MicroHood" ng-model='sentimentValue'>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-</nav>
+<nav class="topNav">
+  <p class="title">MICROHOODS</p>
+  <div class="nav-buttons current">Community</div>
+  <div class="nav-buttons">Personal</div>
+</nav> 
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
   <marker ng-repeat="marker in markers" coords="marker.coords">
