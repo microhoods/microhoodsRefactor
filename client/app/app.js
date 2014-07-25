@@ -23,7 +23,6 @@ angular.module('app', [
 })
 .run(function(MapFactory, geolocation) {
   geolocation.getLocation().then(function(data) {
-    console.log('shits working mayne => ', data);
     MapFactory.updateGeoCache(data.coords.latitude, data.coords.longitude);
   });
 });

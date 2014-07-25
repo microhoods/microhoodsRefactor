@@ -16,7 +16,6 @@ angular.module('app.services', [])
         lat: lat,
         long: long
       };
-      console.log('factory cache => ', cache);
     }
   };
 });
