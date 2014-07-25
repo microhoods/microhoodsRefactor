@@ -1,10 +1,11 @@
-var tagController = require('./tagController.js');
+var tagController = require('./tagController.js'),
+    checkIsAuth = require('./../config/utils.js').checkIsAuth;
 
 module.exports = function(router){
-  router.get('/tags', tagController.getTags);
+  router.get('/tags', checkIsAuth, tagController.getTags);
 
-  router.delete('/tags/:id', tagController.deleteTag);
+  router.delete('/tags/:id', checkIsAuth, tagController.deleteTag);
 
-  router.post('/tags', tagController.createTag);
+  router.post('/tags', checkIsAuth, tagController.createTag);
 
 };

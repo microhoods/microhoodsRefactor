@@ -4,7 +4,7 @@ module.exports = function(router, passport){
   router.get('/auth/google', passport.authenticate('google', {scope: 'https://www.googleapis.com/auth/userinfo.profile'}), function(req, res){});
 
   router.get('/auth/google/callback', passport.authenticate('google'), function(req, res){
-    res.redirect('/');
+    res.redirect('/#/map');
   });
 
   router.get('/logout', function(req, res){
