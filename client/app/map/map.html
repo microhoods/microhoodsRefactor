@@ -1,4 +1,5 @@
 <nav class="top-nav">
+  <button class="signout">Logout</button>
   <p class="title">MICROHOODS</p>
   <div class="nav-buttons current" ng-click='myID(true)'>Community</div>
   <div class="nav-buttons" ng-click='myID()'>Personal</div>
@@ -16,7 +17,7 @@
   <div class="bottom-nav-buttons">Disco</div>
   <div class="bottom-nav-buttons">Party</div>
   <div class="container">
-    <form class="inbar">
+    <form data-toggle="tooltip" trigger="click" title="Type what you would like to tag your 'hood' then doubleclick anywhere on the map to add it!" class="inbar">
       <input ng-model="sentimentValue" placeholder="Add a tagname" class="form-control"></input>
     </form>
   </div>
