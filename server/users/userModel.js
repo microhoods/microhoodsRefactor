@@ -5,8 +5,14 @@ var mongoose = require('mongoose'),
 
 var userSchema = new Schema({
   //user's have an id, that is explicitly their google id
-  userId : Number,
-  userName: String
+  userName: String,
+
+  providers: {
+    google: {
+      id:'Number',
+      accessToken: 'String'
+    }
+  }
 });
 
 var User = mongoose.model('User', userSchema);

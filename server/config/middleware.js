@@ -22,8 +22,7 @@ module.exports = function(app, express){
     callbackURL: process.env.googleCallbackURL || credentials.googleCallbackUrl
   }, function(accessToken, refreshToken, profile, done){
     //check if that user is already in database
-    console.log('kiaaaa');
-    userModel.findOne({userId: profile.id}, function(err, user){
+    userModel.findOne({'providers.google.id': profile.id}, function(err, user){
       if(err){
         throw err;
       }
@@ -36,7 +35,12 @@ module.exports = function(app, express){
         //if not, create new account in database and return that userObj and referenceID
         else{
           console.log('Creating!');
-          userModel.create({userId: profile.id, userName: profile.displayName}, function(err){
+          userModel.create({
+            'providers.google.id': profile.id, 
+            'providers.google.accessToken': accessToken,
+             userName: profile.displayName
+           }, 
+           function(err){
             if(err){
               done(err);
             } 
@@ -53,11 +57,11 @@ module.exports = function(app, express){
   //middleware
 
   passport.serializeUser(function(user, done){
-    console.log('serializeUser:' + user.userId);
-    done(null, user.userId); 
+    console.log('serializeUser:' + user._id);
+    done(null, user); 
   });
-  passport.deserializeUser(function(id, done){
-    User.findOne({userId: id}, function(err, user){
+  passport.deserializeUser(function(user, done){
+    User.findOne({_id : user._id}, function(err, user){
       if(err){
         done(err);
       }
