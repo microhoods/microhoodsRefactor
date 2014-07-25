@@ -61,6 +61,15 @@ angular.module('app.map', [])
     }
   };
 
+  $scope.window = {
+    coords: {
+      latitude: MapFactory.cache.geolocation.lat,
+      longitude: MapFactory.cache.geolocation.long
+    },
+    show: true,
+    templateUrl: 'app/map/window.html'
+  };
+
   $scope.tagDetails = function() {
     console.log('YEAH!');
   };
