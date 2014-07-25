@@ -54,7 +54,7 @@ body {
 }
 
 .form-control {
-  width: 40%;
+  width: 80%;
 }
 
 .inbar {
@@ -66,16 +66,15 @@ body {
   position:absolute;
   height: 47px;
   width: 100%;
-  background-color:#FEF2D8;
+  background-color:#FEF2D8; 
   bottom:0;
   z-index: 1
 }
 
-.nav-buttons {
+.top-nav-buttons {
   height:46.8px;
   width:238px;
   float:right;
-  box-sizing: border-box;
   background-color: rgb(242, 141, 122);
   line-height: 3;
   text-align: center;
@@ -86,6 +85,11 @@ body {
   background-color: rgb(231, 133, 114);
 }
 
+.signout {
+  margin: 10px 0px 11px 7px;
+}
+
+
 .current {
   background-color: rgb(219, 90, 85);
 }
@@ -95,8 +99,22 @@ body {
   display: block;
 }
 
+.bottom-nav-buttons {
+  height: 35px;
+  width: 156px;
+  float: right;
+  background-color: #6AA8A5;
 
+  line-height: 2.5;
+  text-align: center;
+  font-family: 'Lato';
+  color: #FEF2D8;
+  margin: 4px 4px 0px 0px;
+}
 
+.bottom-nav-buttons:hover {
+  background-color: #137C77;
+}
 
 .loginbutton {
   margin-top: 25px
