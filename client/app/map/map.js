@@ -1,7 +1,7 @@
 angular.module('app.map', [])
 
 .controller('MapController', function($scope, MapFactory) {
-
+  $scope.quickMarkers = [];
   $scope.map = {
     center: {
       latitude: MapFactory.cache.geolocation.lat,
