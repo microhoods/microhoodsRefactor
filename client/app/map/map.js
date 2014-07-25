@@ -1,30 +1,30 @@
 angular.module('app.map', [])
 
-.controller('MapController', function($scope, currentLocation) {
+.controller('MapController', function($scope, MapFactory) {
 
   $scope.map = {
     center: {
-      latitude: currentLocation.latitude,
-      longitude: currentLocation.longitude
+      latitude: MapFactory.cache.geolocation.lat,
+      longitude: MapFactory.cache.geolocation.long
     },
-    zoom: 19
+    zoom: 16
   };
 
   $scope.marker = {
     coords: {
-      latitude: currentLocation.latitude,
-      longitude: currentLocation.longitude
+      latitude: MapFactory.cache.geolocation.lat,
+      longitude: MapFactory.cache.geolocation.long
     }
   };
 
   $scope.circle = {
     center: {
-      latitude: currentLocation.latitude,
-      longitude: currentLocation.longitude
+      latitude: MapFactory.cache.geolocation.lat,
+      longitude: MapFactory.cache.geolocation.long
     },
     radius: 100,
     fill: {
-      color: 'orange'
+      color: 'blue'
     },
     stroke: {
       weight: 0.5
