@@ -28,8 +28,22 @@ angular.module('app.map', [])
 
   $scope.events = {
     dblclick: function(map, event, args) {
-      $scope.markers.push(args[0])
-      console.log(args[0]);
+      var plot = {
+        sentiment: 'Plot',
+        geo: [
+          args[0].lat,
+          args[0].long
+        ]
+      };
+      MapFactory.postMarkers(plot)
+        .then(function(data) {
+          $scope.markers.push({
+            coords: {
+              latitude: data.geo[0],
+              longitude: data.geo[1]
+            }
+          });
+      });
     }
   };
 
@@ -42,9 +56,4 @@ angular.module('app.map', [])
     templateUrl: 'app/map/window.html'
   };
 
-  // $scope.tagDetails = function() {
-  //   console.log('YEAH!');
-  // };
-
-  // navigator.geolocation.getCurrentPosition(success, error);
 });
