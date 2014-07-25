@@ -31,7 +31,8 @@ angular.module('app.map', [])
             coords: {
             latitude: data.geo[1],
             longitude: data.geo[0]
-            }
+            },
+            user : data.user
           });
         console.log('Markers');
         console.log($scope.markers);
