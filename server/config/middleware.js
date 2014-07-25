@@ -5,10 +5,8 @@ var bodyParser = require('body-parser'),
 
 //Enable this variable for local testing
 if(!process.env.PORT){
-  var credentials = require('./../../credentials.js') || 'empty';
+  var credentials = require('./../../credentials.js');
 }
-
-
 
 
 module.exports = function(app, express){
@@ -30,7 +28,6 @@ module.exports = function(app, express){
       }
       else{
         //if exists, return user object and referenceID
-        console.log(user);
         if(user){
           done(null, user);
         } 
@@ -47,7 +44,6 @@ module.exports = function(app, express){
               done(err);
             } 
             else {
-              console.log(user);
               done(null, user);
             }
           });
@@ -59,7 +55,6 @@ module.exports = function(app, express){
   //middleware
 
   passport.serializeUser(function(user, done){
-    console.log('serializeUser:' + user._id);
     done(null, user); 
   });
   passport.deserializeUser(function(user, done){
