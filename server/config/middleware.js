@@ -5,10 +5,8 @@ var bodyParser = require('body-parser'),
 
 //Enable this variable for local testing
 if(!process.env.PORT){
-  var credentials = require('./../../credentials.js') || 'empty';
+  var credentials = require('./../../credentials.js');
 }
-
-
 
 
 module.exports = function(app, express){
