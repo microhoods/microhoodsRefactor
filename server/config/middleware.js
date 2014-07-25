@@ -2,7 +2,8 @@ var bodyParser = require('body-parser'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     userModel = require('./../users/userModel.js'),
-    userController = require('./../users/userController.js'); 
+    userController = require('./../users/userController.js'),
+    session = require('express-session');
 
 //A cool trick to enable local testing
 if(!process.env.PORT){
@@ -27,6 +28,7 @@ module.exports = function(app, express){
   passport.deserializeUser(userController.deserializeUser);
 
   //session establishment
+  app.use(session({secret: 'secrets!'}));
   app.use(passport.initialize());
   app.use(passport.session());
 
