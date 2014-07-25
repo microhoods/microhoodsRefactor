@@ -12,7 +12,7 @@ body {
 }
 
 
-.info {
+.topNav {
   position:absolute;
   height: 47px;
   width: 100%;
@@ -54,18 +54,21 @@ body {
 
 
 .nav-buttons {
-  height:47px;
+  height:46.8px;
   width:238px;
   float:right;
-
+  box-sizing: border-box;
   background-color: rgb(242, 141, 122);
   line-height: 3;
   text-align: center;
   font-family: 'Lato';
   color:#FEF2D8;
 }
+.nav-buttons:hover:not(.current){
+  background-color: rgb(231, 133, 114);
+}
 
- .current {
+.current {
   background-color: rgb(219, 90, 85);
 }
 
