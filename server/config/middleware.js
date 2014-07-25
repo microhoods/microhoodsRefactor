@@ -33,7 +33,6 @@ module.exports = function(app, express){
         } 
         //if not, create new account in database and return that userObj and referenceID
         else{
-          console.log('Creating!');
           userModel.create({
             'providers.google.id': profile.id, 
             'providers.google.accessToken': accessToken,
@@ -55,6 +54,7 @@ module.exports = function(app, express){
   //middleware
 
   passport.serializeUser(function(user, done){
+    console.log('serializeUser:' + user);
     done(null, user); 
   });
   passport.deserializeUser(function(user, done){
