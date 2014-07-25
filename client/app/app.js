@@ -21,8 +21,13 @@ angular.module('app', [
     });
   $urlRouterProvider.otherwise('/signin');
 })
-.run(function(MapFactory, geolocation) {
+.run(function(MapFactory, geolocation, $http) {
+  // $http.get('/api/tags').then(function(results){
+  //   $scope.markers.push(results.results);
+  // });
+
   geolocation.getLocation().then(function(data) {
     MapFactory.updateGeoCache(data.coords.latitude, data.coords.longitude);
+
   });
 });

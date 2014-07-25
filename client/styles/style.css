@@ -3,68 +3,15 @@ body {
 }
 
 .angular-google-map-container {
-  height: 800px;
+  position: absolute;
+  top: 47px;
+  bottom: 0;
+  height: 88%;
+  width: 100%;
+  z-index: 0;
 }
 
-.navbar-default {
-  background-color: #4180ff;
-  border-color: #0329d6;
-}
-.navbar-default .navbar-brand {
-  color: #ffffff;
-}
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #004479;
-}
-.navbar-default .navbar-text {
-  color: #ffffff;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #ffffff;
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #004479;
-}
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #004479;
-  background-color: #0329d6;
-}
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #004479;
-  background-color: #0329d6;
-}
-.navbar-default .navbar-toggle {
-  border-color: #0329d6;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #0329d6;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #ffffff;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: #ffffff;
-}
-.navbar-default .navbar-link {
-  color: #ffffff;
-}
-.navbar-default .navbar-link:hover {
-  color: #004479;
-}
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #ffffff;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #004479;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #004479;
-    background-color: #0329d6;
-  }
-}
 
 @font-face {
   font-family: 'Lato';
@@ -73,7 +20,7 @@ body {
   src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 
-.content {
+.content { 
   text-align: center;
 }
 
@@ -85,10 +32,71 @@ body {
   margin: 35px 0 10px;
 }
 
+
+.title {
+  position: absolute;
+  top:20%;
+  left: 8%;
+  color: #03606B;
+  font-family: 'Lato';
+  font-size: 21px;
+  text-align: center;
+}
+
+.top-nav {
+  position:absolute;
+  height: 47px;
+  width: 100%;
+  background-color:#FEF2D8;
+  top:0;
+  bottom:0;
+  z-index: 1
+}
+
+.form-control {
+  width: 40%;
+}
+
+.inbar {
+  margin-top: 5px;
+  margin-left:-110px;
+}
+
+.bottom-nav {
+  position:absolute;
+  height: 47px;
+  width: 100%;
+  background-color:#FEF2D8;
+  bottom:0;
+  z-index: 1
+}
+
+.nav-buttons {
+  height:46.8px;
+  width:238px;
+  float:right;
+  box-sizing: border-box;
+  background-color: rgb(242, 141, 122);
+  line-height: 3;
+  text-align: center;
+  font-family: 'Lato';
+  color:#FEF2D8;
+}
+.nav-buttons:hover:not(.current){
+  background-color: rgb(231, 133, 114);
+}
+
+.current {
+  background-color: rgb(219, 90, 85);
+}
+
 .page-subheader {
   font-size: 16pt;
   display: block;
 }
+
+
+
 
 .loginbutton {
   margin-top: 25px

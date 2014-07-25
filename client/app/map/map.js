@@ -1,45 +1,60 @@
-angular.module('app.map', [])
+angular.module('app.map', [
+  'ngFx'
+])
 
-.controller('MapController', function($scope, MapFactory) {
-  $scope.quickMarkers = [];
+.controller('MapController', function($scope, MapFactory, $http) {
+  
+  $scope.myID = function(all){
+    if(all) {
+      return $scope.userId = '';
+    }
+
+    $http({
+      method: 'GET',
+      url: '/api/tags/myTags'
+    }).then(function(res){
+      data = JSON.parse(res.data);
+      $scope.userId = data;
+    }); 
+  }
+
   $scope.map = {
     center: {
       latitude: MapFactory.cache.geolocation.lat,
       longitude: MapFactory.cache.geolocation.long
     },
-    zoom: 16
-  };
-
-  $scope.markers = [
-    {
-      id: 1,
-      coords: {
-        latitude: 37.7836,
-        longitude: -122.4090
-      }
+    zoom: 16,
+    options: {
+      disableDoubleClickZoom: true
     },
-    {
-      id: 2,
-      coords: {
-        latitude: 37.786368644391295,
-        longitude:  -122.4082088470459
-      }
-    },
-    {
-      id: 3,
-      coords: {
-        latitude:  37.783901211929845,
-        longitude: -122.41260766983032
-      }
-    },
-    {
-      id: 4,
-      coords: {
-        latitude: 37.78586414170478,
-        longitude: -122.4110466241018
+    events: {
+      dblclick: function(map, event, args) {
+        var plot = {
+          _id: 1,
+          sentiment: $scope.sentimentValue,
+          geo: [
+            args[0].latLng.B,
+            args[0].latLng.k
+          ]
+        };
+        MapFactory.postMarkers(plot)
+          .then(function(data) {
+          $scope.markers.push({
+            id : data._id,
+            sentiment : data.sentiment,
+            coords: {
+            latitude: data.geo[1],
+            longitude: data.geo[0]
+            },
+            user : data.user
+          });
+        $scope.sentimentValue = '';
+        });
       }
     }
-  ];
+  };
+
+  $scope.markers = [];
 
   $scope.circle = {
     center: {
@@ -55,12 +70,6 @@ angular.module('app.map', [])
     }
   };
 
-  $scope.events = {
-    dblclick: function(map, event, args) {
-      console.log(args[0]);
-    }
-  };
-
   $scope.window = {
     coords: {
       latitude: MapFactory.cache.geolocation.lat,
@@ -68,11 +77,38 @@ angular.module('app.map', [])
     },
     show: true,
     templateUrl: 'app/map/window.html'
+    };
+
+
+  MapFactory.getMarkers()
+  .then(function(data){
+    for(var i = 0; i < data.data.length; i++){
+      var current = data.data[i];
+      $scope.markers.push({
+        coords: {
+          latitude: current.geo[1],
+          longitude: current.geo[0]
+        },
+        sentiment : current.sentiment,
+        id : current._id,
+        user: current.user
+      });
+    } 
+  console.log($scope.markers)
+
+  });
+
+  $scope.deleteTag = function(id){
+    var item = $scope.markers[id];
+    $scope.$apply(function(){
+      $scope.markers.splice(id, 1);
+    });
+    $http({
+      method : 'DELETE',
+      url: '/api/tags/' + item.id,
+    });
   };
 
-  // $scope.tagDetails = function() {
-  //   console.log('YEAH!');
-  // };
 
-  // navigator.geolocation.getCurrentPosition(success, error);
+
 });
