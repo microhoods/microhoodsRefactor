@@ -12,15 +12,6 @@ body {
 }
 
 
-.topNav {
-  position:absolute;
-  height: 47px;
-  width: 100%;
-  background-color:#FEF2D8;
-  top:0;
-  bottom:0;
-  z-index: 1
-}
 
 @font-face {
   font-family: 'Lato';
@@ -52,6 +43,33 @@ body {
   text-align: center;
 }
 
+.top-nav {
+  position:absolute;
+  height: 47px;
+  width: 100%;
+  background-color:#FEF2D8;
+  top:0;
+  bottom:0;
+  z-index: 1
+}
+
+.form-control {
+  width: 40%;
+}
+
+.inbar {
+  margin-top: 5px;
+  margin-left:-110px;
+}
+
+.bottom-nav {
+  position:absolute;
+  height: 47px;
+  width: 100%;
+  background-color:#FEF2D8;
+  bottom:0;
+  z-index: 1
+}
 
 .nav-buttons {
   height:46.8px;
@@ -76,6 +94,9 @@ body {
   font-size: 16pt;
   display: block;
 }
+
+
+
 
 .loginbutton {
   margin-top: 25px
