@@ -5,12 +5,12 @@ var mongoose = require('mongoose'),
 
 var tagSchema = new Schema({
 
-  //userId that references a singleUser
-  // user: {
-  //   type: Schema.ObjectId, 
-  //   ref: 'User',
-  //   required: true
-  // },
+  userId that references a singleUser
+  user: {
+    type: Schema.ObjectId, 
+    ref: 'User',
+    required: true
+  },
 
   //sentiment which is a string
   sentiment: {
