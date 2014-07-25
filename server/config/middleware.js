@@ -4,11 +4,10 @@ var bodyParser = require('body-parser'),
     userModel = require('./../users/userModel.js'),
     userController = require('./../users/userController.js'); 
 
-//Enable this variable for local testing
+//A cool trick to enable local testing
 if(!process.env.PORT){
   var credentials = require('./../../credentials.js');
 }
-
 
 module.exports = function(app, express){
   
@@ -22,14 +21,16 @@ module.exports = function(app, express){
     clientSecret: process.env.google_clientSecret || credentials.google_clientSecret,
     callbackURL: process.env.googleCallbackURL || credentials.googleCallbackUrl
   }, userController.loginToDatabase));
-
-  //middleware
-
+  
+  //serializing users
   passport.serializeUser(userController.serializeUser);
   passport.deserializeUser(userController.deserializeUser);
-  
+
+  //session establishment
   app.use(passport.initialize());
   app.use(passport.session());
+
+  //body parser and static files
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../client'));
@@ -41,7 +42,5 @@ module.exports = function(app, express){
   //require routers
   require('../users/userRoutes.js')(userRouter, passport);
   require('../tags/tagRoutes.js')(tagRouter);
-
-
 
 };
