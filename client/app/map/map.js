@@ -10,36 +10,7 @@ angular.module('app.map', [])
     zoom: 16
   };
 
-  $scope.markers = [
-    {
-      id: 1,
-      coords: {
-        latitude: 37.7836,
-        longitude: -122.4090
-      }
-    },
-    {
-      id: 2,
-      coords: {
-        latitude: 37.786368644391295,
-        longitude:  -122.4082088470459
-      }
-    },
-    {
-      id: 3,
-      coords: {
-        latitude:  37.783901211929845,
-        longitude: -122.41260766983032
-      }
-    },
-    {
-      id: 4,
-      coords: {
-        latitude: 37.78586414170478,
-        longitude: -122.4110466241018
-      }
-    }
-  ];
+  $scope.markers = [];
 
   $scope.circle = {
     center: {
@@ -57,6 +28,7 @@ angular.module('app.map', [])
 
   $scope.events = {
     dblclick: function(map, event, args) {
+      $scope.markers.push(args[0])
       console.log(args[0]);
     }
   };
