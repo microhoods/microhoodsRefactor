@@ -28,8 +28,6 @@ angular.module('app.map', [])
 
   $scope.events = {
     dblclick: function(map, event, args) {
-      console.log('Args');
-      console.log(args);
     var plot = {
       _id: 1,
       sentiment: 'Plot',
