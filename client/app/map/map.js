@@ -1,4 +1,6 @@
-angular.module('app.map', [])
+angular.module('app.map', [
+  'ngFx'
+])
 
 .controller('MapController', function($scope, MapFactory, $http) {
   
