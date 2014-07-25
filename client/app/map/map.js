@@ -8,11 +8,14 @@ angular.module('app.map', [])
       longitude: MapFactory.cache.geolocation.long
     },
     zoom: 16,
+    options: {
+      disableDoubleClickZoom: true
+    },
     events: {
       dblclick: function(map, event, args) {
         var plot = {
           _id: 1,
-          sentiment: 'Plot',
+          sentiment: $scope.sentimentValue,
           geo: [
             args[0].latLng.B,
             args[0].latLng.k
@@ -23,6 +26,7 @@ angular.module('app.map', [])
             console.log('this is data posted');
             console.log(data);
           $scope.markers.push({
+            sentiment : data.sentiment,
             coords: {
             latitude: data.geo[1],
             longitude: data.geo[0]
@@ -58,12 +62,18 @@ angular.module('app.map', [])
     },
     show: true,
     templateUrl: 'app/map/window.html'
-  };
+      };
 
   $scope.markerEvents = {
     dblclick: function(map, event, args) {
       console.log(args);
+    },
+
+    click: function(){
+      console.log('Hi!');
     }
+    
+
   };
 
   $scope.tagDetails = function() {
@@ -72,14 +82,34 @@ angular.module('app.map', [])
 
   MapFactory.getMarkers()
   .then(function(data){
+    console.log(data);
     for(var i = 0; i < data.data.length; i++){
       var current = data.data[i];
       $scope.markers.push({
         coords: {
           latitude: current.geo[1],
           longitude: current.geo[0]
-        }
+        },
+        sentiment : current.sentiment,
+        id : current._id
       });
     } 
   });
+
+  $scope.deleteTag = function(id){
+    var item = $scope.markers[id];
+    $scope.$apply(function(){
+      $scope.markers.splice(id, 1);
+    });
+    console.log(item);
+    $http({
+      method : 'DELETE',
+      url: '/api/tags/' + item.id,
+
+    }).then(function(data){
+      console.log(data);
+    });
+    // console.log(id);
+    // console.log($scope.markers.slice(id, 1));
+  };
 });
