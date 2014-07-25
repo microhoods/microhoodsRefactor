@@ -35,7 +35,7 @@ module.exports = {
     done(null, user);
   },
   deserializeUser : function(user, done){
-    User.findOne({_id : user._id}, function(err, user){
+    userModel.findOne({_id : user._id}, function(err, user){
       if(err){
         done(err);
       }
