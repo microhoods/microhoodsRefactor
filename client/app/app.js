@@ -17,14 +17,13 @@ angular.module('app', [
     .state('map', {
       url: '/map',
       templateUrl: 'app/map/map.html',
-      controller: 'MapController',
-      resolve: {
-        currentLocation: function(geolocation) {
-          return geolocation.getLocation().then(function(data) {
-            return data.coords;
-          });
-        }
-      }
+      controller: 'MapController'
     });
   $urlRouterProvider.otherwise('/signin');
+})
+.run(function(MapFactory, geolocation) {
+  geolocation.getLocation().then(function(data) {
+    console.log('shits working mayne => ', data);
+    MapFactory.updateGeoCache(data.coords.latitude, data.coords.longitude);
+  });
 });
