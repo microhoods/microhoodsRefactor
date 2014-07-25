@@ -6,8 +6,9 @@ module.exports = {
   createTag : function(req, res){
     var sentiment = req.body.sentiment || 'dummy';
     var geo = req.body.geo || [100,100];
+    var userId = req.user._id;
     tagModel.create({
-      user: req.body.user._id,
+      user: userId,
       sentiment: sentiment,
       geo: geo
     }, function(err, data){
