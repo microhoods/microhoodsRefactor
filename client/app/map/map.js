@@ -2,6 +2,7 @@ angular.module('app.map', [])
 
 .controller('MapController', function($scope, MapFactory, $http) {
 
+
   $scope.map = {
     center: {
       latitude: MapFactory.cache.geolocation.lat,

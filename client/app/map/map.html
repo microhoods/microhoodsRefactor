@@ -1,7 +1,7 @@
 <nav class="top-nav">
   <p class="title">MICROHOODS</p>
-  <div class="nav-buttons current">Community</div>
-  <div class="nav-buttons">Personal</div>
+  <div class="nav-buttons current" ng-click='switchCommunity()'>Community</div>
+  <div class="nav-buttons" ng-click='switchPersonal()'>Personal</div>
 </nav> 
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->

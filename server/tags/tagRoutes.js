@@ -8,4 +8,8 @@ module.exports = function(router){
 
   router.post('/tags', checkIsAuth, tagController.createTag);
 
+  router.get('/tags/myTags', checkIsAuth, function(req, res){
+    console.log(req.user);
+    res.send(req.user._id);
+  });
 };
