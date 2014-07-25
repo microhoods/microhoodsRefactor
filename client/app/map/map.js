@@ -77,7 +77,8 @@ angular.module('app.map', [])
           longitude: current.geo[0]
         },
         sentiment : current.sentiment,
-        id : current._id
+        id : current._id,
+        user: current.user
       });
     } 
   });
