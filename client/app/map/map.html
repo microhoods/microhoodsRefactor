@@ -17,10 +17,9 @@
 </nav>
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
-  <marker ng-repeat="marker in markers" coords="marker.coords" click="tagDetails()">
-    <window show='true' isIconVisible='false'>
-      <p> {{marker.sentiment}}
-    </p>
+  <marker ng-repeat="marker in markers" coords="marker.coords">
+    <window show='true' isIconVisible='false' closeClick='deleteTag($index)'>
+      <p> {{marker.sentiment}}</p>
     </window>
   </marker>
   <circle center="circle.center" radius="circle.radius" fill="circle.fill" stroke="circle.stroke"></circle>

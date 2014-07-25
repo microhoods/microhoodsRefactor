@@ -62,12 +62,18 @@ angular.module('app.map', [])
     },
     show: true,
     templateUrl: 'app/map/window.html'
-  };
+      };
 
   $scope.markerEvents = {
     dblclick: function(map, event, args) {
       console.log(args);
+    },
+
+    click: function(){
+      console.log('Hi!');
     }
+    
+
   };
 
   $scope.tagDetails = function() {
@@ -76,6 +82,7 @@ angular.module('app.map', [])
 
   MapFactory.getMarkers()
   .then(function(data){
+    console.log(data);
     for(var i = 0; i < data.data.length; i++){
       var current = data.data[i];
       $scope.markers.push({
@@ -83,8 +90,26 @@ angular.module('app.map', [])
           latitude: current.geo[1],
           longitude: current.geo[0]
         },
-        sentiment : current.sentiment
+        sentiment : current.sentiment,
+        id : current._id
       });
     } 
   });
+
+  $scope.deleteTag = function(id){
+    var item = $scope.markers[id];
+    $scope.$apply(function(){
+      $scope.markers.splice(id, 1);
+    });
+    console.log(item);
+    $http({
+      method : 'DELETE',
+      url: '/api/tags/' + item.id,
+
+    }).then(function(data){
+      console.log(data);
+    });
+    // console.log(id);
+    // console.log($scope.markers.slice(id, 1));
+  };
 });
