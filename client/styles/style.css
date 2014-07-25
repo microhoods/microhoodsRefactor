@@ -54,7 +54,7 @@ body {
 }
 
 .form-control {
-  width: 40%;
+  width: 80%;
 }
 
 .inbar {
@@ -71,11 +71,10 @@ body {
   z-index: 1
 }
 
-.nav-buttons {
+.top-nav-buttons {
   height:46.8px;
   width:238px;
   float:right;
-  box-sizing: border-box;
   background-color: rgb(242, 141, 122);
   line-height: 3;
   text-align: center;
@@ -95,8 +94,22 @@ body {
   display: block;
 }
 
+.bottom-nav-buttons {
+  height: 35px;
+  width: 156px;
+  float: right;
+  background-color: #6AA8A5;
 
+  line-height: 2.5;
+  text-align: center;
+  font-family: 'Lato';
+  color: #FEF2D8;
+  margin: 4px 4px 0px 0px;
+}
 
+.bottom-nav-buttons:hover {
+  background-color: #137C77;
+}
 
 .loginbutton {
   margin-top: 25px
