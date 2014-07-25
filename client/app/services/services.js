@@ -1,10 +1,6 @@
 angular.module('app.services', [])
 
 .factory('MapFactory', function() {
-  $rootScope.$on('$stateChangeStart', 
-function(event, toState, toParams, fromState, fromParams){ 
-    // do something
-});
   var cache = {
     geolocation: {
       lat: 37.7836,
