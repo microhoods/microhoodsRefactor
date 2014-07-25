@@ -6,12 +6,12 @@
 </nav> 
 <google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options='map.options'>
   <!-- <window show="window.show" coords="window.coords">YOOOO</window>events="markerEvents" -->
-  <marker ng-repeat="marker in markers | filter:{user: userId}" coords="marker.coords" ng-if='!switch || switch === markers[$id].user'>
+  <marker animation='DROP' ng-repeat="marker in markers | filter:{user: userId}" coords="marker.coords" ng-if='!switch || switch === markers[$id].user'>
     <window show='true' isIconVisible='false' closeClick='deleteTag($index)'>
       <p> {{marker.sentiment}}</p>
     </window>
   </marker>
-  <marker coords='circle.center'></marker>
+  <marker animation='DROP' coords='circle.center'></marker>
 </google-map>
 
 <nav class="bottom-nav">

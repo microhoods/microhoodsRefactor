@@ -1,14 +1,5 @@
-Thu Jul 24 2014 15:02:14 GMT-0700 (PDT):
-[Error: Application setting with key "google_clientId" already exists]
-Error: Application setting with key "google_clientId" already exists
-    at ___ (/usr/local/lib/node_modules/azure-cli/lib/commands/asm/site.appsetting._js:84:28)
-    at ___ (/usr/local/lib/node_modules/azure-cli/node_modules/streamline/lib/callbacks/runtime.js:85:13)
-    at /usr/local/lib/node_modules/azure-cli/lib/commands/asm/websites/websitesclient._js:542:14
-    at /usr/local/lib/node_modules/azure-cli/node_modules/azure/node_modules/azure-mgmt-website/lib/webSiteManagementClient.js:3177:16
-    at Parser.<anonymous> (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/lib/xml2js.js:246:20)
-    at Parser.EventEmitter.emit (events.js:95:17)
-    at Object.saxParser.onclosetag (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/lib/xml2js.js:225:24)
-    at emit (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/node_modules/sax/lib/sax.js:589:33)
-    at emitNode (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/node_modules/sax/lib/sax.js:594:3)
-    at closeTag (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/node_modules/sax/lib/sax.js:834:5)
-    at Object.write (/usr/local/lib/node_modules/azure-cli/node_modules/azure-common/node_modules/xml2js/node_modules/sax/lib/sax.js:1253:29)
+Fri Jul 25 2014 14:27:23 GMT-0700 (PDT):
+{ [Error: write EIO] code: 'EIO', errno: 'EIO', syscall: 'write' }
+Error: write EIO
+    at errnoException (net.js:904:11)
+    at Object.afterWrite (net.js:720:19)
